@@ -7,22 +7,18 @@
       dark
     >
       <!--<v-app-bar-nav-icon></v-app-bar-nav-icon>-->
-      <v-img :src="require('../assets/1000comics.png')"
+      <!-- <v-img :src="require('../assets/1000comics.png')"
         contain
         height="80"
         position="0"
         max-width="fit-content"
-      />
+      /> -->
       
       <v-toolbar
         elevation="0"
         color="red lighten-1 text-center"
       >
         <v-toolbar-item>Inicio</v-toolbar-item>
-        <v-spacer></v-spacer>
-        <v-toolbar-item>Comics</v-toolbar-item>
-        <v-spacer></v-spacer>
-        <v-toolbar-item>Figuras</v-toolbar-item>
         <v-spacer></v-spacer>
         <v-toolbar-item>Merchandising</v-toolbar-item>
         <v-spacer></v-spacer>
@@ -35,7 +31,7 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <!-- <svg-icon type="mdi" :path="path"></svg-icon> -->
       </v-btn>
 
       <v-btn icon>
@@ -69,3 +65,20 @@
     </v-app-bar>
   </div>
 </template>
+
+<!-- <script>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiAccountCircle } from '@mdi/js';
+
+export default {
+  name: "my-component",
+  components: {
+    SvgIcon
+  },
+  data() {
+    return {
+       path: mdiAccountCircle,
+    }
+  }
+}
+</script> -->
