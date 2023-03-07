@@ -2,20 +2,25 @@
   <v-app>
     <v-main>
       <AppBar_Component/>
-      <CarousselComponent/>
+      <!-- <CarousselComponent/> -->
+      <!-- <CarousselPrueba/> -->
+      <PerfilUsuario/>
+      <!-- <Card_Component/> -->
       <footerComponent/> 
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
-// import FooterPart from './components/FooterPart';
+
 import AppBar_Component from './components/Vuetify/AppBar_Component';
-import CarousselComponent from './components/Vuetify/CarousselComponent';
+// import Card_Component from './components/Vuetify/Card_Component.vue';
+// import CarousselPrueba from './components/Vuetify/CarousselPrueba.vue'
+// import CarousselComponent from './components/Vuetify/CarousselComponent';
 import footerComponent from './components/Vuetify/footerComponent';
-// import FooterPart from './components/FooterPart';
-// import FooterPart from './components/FooterPart';
+import PerfilUsuario from './components/Vuetify/PerfilUsuario';
+// import GridProductos from './components/Vuetify/GridProductos';
+
 
 export default {
   name: 'App',
@@ -23,8 +28,12 @@ export default {
   components: {
     // HelloWorld,
     footerComponent,
-    CarousselComponent,
+    // CarousselPrueba,
+    // CarousselComponent,
     AppBar_Component,
+    // GridProductos,
+    // Card_Component,
+    PerfilUsuario,
 },
 
   data: () => ({

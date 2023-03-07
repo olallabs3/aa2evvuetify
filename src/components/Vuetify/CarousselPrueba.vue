@@ -1,24 +1,40 @@
 <template>
-    <v-card elevation="24" max-width="600" max-height="600" class="100% carrouselg" >
-      <v-carousel fill class="carrousel">
-        <v-carousel-item src="https://i.pinimg.com/564x/7d/5c/5c/7d5c5c8a5ac11c5fc67351e4d8e789db.jpg" class="imagen" contain></v-carousel-item>
-  
-        <v-carousel-item src="https://i.pinimg.com/564x/5a/28/af/5a28af274e88b149d5c0e44afd6d11c7.jpg" class="imagen"  contain></v-carousel-item>
-  
-        <v-carousel-item src="https://i.pinimg.com/564x/1a/46/3d/1a463dec4e8669bec22d010ba8647b8d.jpg" class="imagen" contain></v-carousel-item>
-  
-        <v-carousel-item src="https://i.pinimg.com/564x/50/38/55/5038551590177a3cc45aca48c1153429.jpg" class="imagen" contain></v-carousel-item>
+  <v-card>
+    <u><p class="titulos">Últimos lanzamientos</p></u>
+    <v-card elevation="0" max-width="500" max-height="400" class="100% carrouselg"  >
+      <v-carousel fill class="carrousel" hide-delimiters>
+        <v-carousel-item src="https://i.pinimg.com/564x/fd/b1/7d/fdb17d67075f41ba4998546746eed45f.jpg" class="imagen" contain></v-carousel-item>
+        <v-carousel-item src="https://i.pinimg.com/564x/9b/63/e9/9b63e97f6f13d2073668f923258f808c.jpg" class="imagen" contain></v-carousel-item>
       </v-carousel>
     </v-card>
+<br>
+    <u><p class="titulos">Proximos lanzamientos</p></u>
+    <v-card elevation="0" max-width="500" max-height="400" class="100% carrouselg" >
+      <v-carousel fill class="carrousel">
+        <v-carousel-item src="https://i.pinimg.com/736x/80/6d/10/806d104861d80358d1b4f6f02d40c642.jpg" class="imagen" contain></v-carousel-item>
+  
+        <v-carousel-item src="https://i.pinimg.com/564x/39/a7/ae/39a7aec6fdf9c48f3e91c124cd85e641.jpg" class="imagen" contain></v-carousel-item>
+      </v-carousel>
+    </v-card>
+  </v-card>
   </template>
   
   <style scoped>
   .carrousel {
-    margin-left: 150px;
-    width: 300px;
+    margin-left: 100px;
+    width: 400px;
+    background-color: rgba(245, 222, 179, 0) ;
   }
+
+  .titulos{
+    font-size: 20px;
+    margin-left: 100px;
+
+  }
+
   .carrouselg{
-    margin-left: 650px;
+    background-color: rgba(245, 222, 179, 0) ;
+    margin-left: 450px;
     
   }
   </style>

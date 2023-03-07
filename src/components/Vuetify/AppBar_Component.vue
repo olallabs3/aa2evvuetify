@@ -1,11 +1,6 @@
 <template>
   <div>
-    <v-app-bar
-      height="100px"
-      color="red lighten-1 text-center"
-      dense
-      dark
-    >
+    <v-app-bar height="100px" color="red lighten-1 text-center" dense dark>
       <!--<v-app-bar-nav-icon></v-app-bar-nav-icon>-->
       <!-- <v-img :src="require('../assets/1000comics.png')"
         contain
@@ -13,19 +8,14 @@
         position="0"
         max-width="fit-content"
       /> -->
-      
-      <v-toolbar
-        elevation="0"
-        color="red lighten-1 text-center"
-      >
-        <v-toolbar-item>Inicio</v-toolbar-item>
+
+      <v-toolbar elevation="0" color="red lighten-1 text-center">
+        <v-btn style="background-color: brown;"><v-toolbar-item>Inicio</v-toolbar-item></v-btn>
         <v-spacer></v-spacer>
-        <v-toolbar-item>Merchandising</v-toolbar-item>
+        <v-btn style="background-color: brown;"><v-toolbar-item>Juegos</v-toolbar-item></v-btn>
         <v-spacer></v-spacer>
-        <v-toolbar-item>Juegos</v-toolbar-item>
-        <v-spacer></v-spacer>
-        <v-toolbar-item>Noticias</v-toolbar-item>
-      <!--<v-toolbar-title>Título soso</v-toolbar-title>-->
+        <v-btn style="background-color: brown;"><v-toolbar-item>Noticias</v-toolbar-item></v-btn>
+        <!--<v-toolbar-title>Título soso</v-toolbar-title>-->
       </v-toolbar>
 
       <v-spacer></v-spacer>
@@ -37,28 +27,19 @@
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-
-      <v-menu
-        left
-        bottom
-      >
+      <v-btn icon>
+        <v-icon>mdi-account-circle</v-icon>
+      </v-btn>
+      <v-menu left bottom>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-          >
+          <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item
-            v-for="n in 5"
-            :key="n"
-            @click="() => {}"
-          >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          <v-list-item v-for="n in categoria" :key="n" @click="() => { }">
+            <v-list-item-title> {{ n }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -66,19 +47,40 @@
   </div>
 </template>
 
-<!-- <script>
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiAccountCircle } from '@mdi/js';
-
+<script>
 export default {
-  name: "my-component",
-  components: {
-    SvgIcon
+
+  data: () => ({
+
+    categoria: [
+      'Plataformas',
+      'FPS',
+      'Acción',
+      'Estrategia',
+
+    ],
+    items: [
+      'default',
+      'absolute',
+      'fixed',
+    ],
+    padless: true,
+    variant: 'absolute',
+  }),
+  computed: {
+    localAttrs() {
+      const attrs = {}
+
+      if (this.variant === 'default') {
+        attrs.absolute = false
+        attrs.fixed = false
+      } else {
+        attrs[this.variant] = true
+      }
+      return attrs
+
+    },
   },
-  data() {
-    return {
-       path: mdiAccountCircle,
-    }
-  }
 }
-</script> -->
+
+</script>

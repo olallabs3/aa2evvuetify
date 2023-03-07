@@ -17,8 +17,9 @@
             class="mx-4"
             icon
           >
+          <a v-for="icon in icons" :key="icon.enlace" ></a>
             <v-icon size="24px">
-              {{ icon }}
+              {{ icon.icono }}
             </v-icon>
           </v-btn>
         </v-card-text>
@@ -26,7 +27,7 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} — <strong>Actividad aprendizaje 2 Ev</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -63,10 +64,10 @@
   export default {
     data: () => ({
       icons: [
-        'mdi-home',
-        'mdi-email',
-        'mdi-calendar',
-        'mdi-delete',
+        {icono: 'mdi-twitter', enlace:"https://twitter.com/?lang=es"},
+        {icono: 'mdi-instagram', enlace:"https://twitter.com/?lang=es"},
+        {icono: 'mdi-facebook', enlace:"https://twitter.com/?lang=es"},
+        {icono: 'mdi-twitch', enlace:"https://twitter.com/?lang=es"},
       ],
       items: [
         'default',

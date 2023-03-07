@@ -2,7 +2,7 @@
     <v-app>
       <v-main>
         <AppBar_Component/>
-        <CarousselComponent/>
+        <GridProductos/>
         <footerComponent/> 
         <!-- <FooterPart/> -->
       </v-main>
@@ -13,8 +13,8 @@
   // import HelloWorld from './components/HelloWorld';
   // import FooterPart from './components/FooterPart';
   import AppBar_Component from './components/Vuetify/AppBar_Component';
-  import CarousselComponent from './components/Vuetify/CarousselComponent';
   import footerComponent from './components/Vuetify/footerComponent';
+  import GridProductos from './components/Vuetify/GridProductos.vue';
   // import FooterPart from './components/FooterPart';
   // import FooterPart from './components/FooterPart';
   
@@ -23,11 +23,11 @@
     name: 'Productos',
   
     components: {
-      // HelloWorld,
-      footerComponent,
-      CarousselComponent,
-      AppBar_Component,
-  },
+    // HelloWorld,
+    footerComponent,
+    AppBar_Component,
+    GridProductos,
+},
   
     data: () => ({
       //
