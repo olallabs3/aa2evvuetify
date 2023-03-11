@@ -17,7 +17,7 @@
             class="mx-4"
             icon
           >
-          <a v-for="icon in icons" :key="icon.enlace" ></a>
+          <a v-for="icon in icons" :key="icon.enlace"></a>
             <v-icon size="24px">
               {{ icon.icono }}
             </v-icon>
@@ -41,20 +41,7 @@
         cols="12"
         md="8"
       >
-      <!--
-        <v-select
-          v-model="variant"
-          :items="items"
-          clearable
-          label="Variant"
-        ></v-select>
-
-        <v-checkbox
-          v-model="padless"
-          hide-details
-          label="Padless"
-        ></v-checkbox>
-        -->
+    
       </v-col>
     </v-row>
   </v-card>
