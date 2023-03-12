@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import InicioView from '../views/InicioView.vue';
 import ProductosView from '../views/ProductosView.vue';
 import PerfilView from '../views/PerfilView.vue'
+import LoginView from '../views/LoginView.vue'
 
 Vue.use(VueRouter);
 
@@ -11,6 +12,7 @@ const routes = [
   { path: '/', name: 'Inicio', component: InicioView },
   { path: '/inicio', name: 'Inicio', component: InicioView },
   { path: '/productos', name: 'Productos', component: ProductosView },
+  { path: '/login', name: 'Login', component: LoginView },
   { path: '/perfil', name: 'Perfil', component: PerfilView }
 ];
 

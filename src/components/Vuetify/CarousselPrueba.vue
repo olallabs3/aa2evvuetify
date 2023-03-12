@@ -6,26 +6,27 @@
   </v-card>
     <v-card elevation="0" max-width="500" max-height="400" class="100% carrouselg"  >
       <v-carousel fill class="carrousel" hide-delimiters>
-        <v-carousel-item><v-btn to="/productos" class="imagen"></v-btn></v-carousel-item> 
-        <v-carousel-item src="https://i.pinimg.com/564x/9b/63/e9/9b63e97f6f13d2073668f923258f808c.jpg" class="imagen" contain></v-carousel-item>
+        <v-carousel-item><v-btn to="/productos" class="imagen" style="height: 400px; background-image: url(https://i.pinimg.com/564x/fd/b1/7d/fdb17d67075f41ba4998546746eed45f.jpg);"></v-btn></v-carousel-item> 
+        <v-carousel-item><v-btn to="/productos" class="imagen" style="height: 400px; background-image: url(https://i.pinimg.com/564x/9b/63/e9/9b63e97f6f13d2073668f923258f808c.jpg);"></v-btn></v-carousel-item>
       </v-carousel>
     </v-card>
 <br>
     <u><p class="titulos">Proximos lanzamientos</p></u>
     <v-card elevation="0" max-width="500" max-height="400" class="100% carrouselg" >
       <v-carousel fill class="carrousel">
-        <v-carousel-item src="https://i.pinimg.com/736x/80/6d/10/806d104861d80358d1b4f6f02d40c642.jpg" class="imagen" contain></v-carousel-item>
-  
-        <v-carousel-item src="https://i.pinimg.com/564x/39/a7/ae/39a7aec6fdf9c48f3e91c124cd85e641.jpg" class="imagen" contain></v-carousel-item>
+        <v-carousel-item ><v-btn to="/productos" class="imagen" style="height: 400px; background-image: url(https://i.pinimg.com/736x/80/6d/10/806d104861d80358d1b4f6f02d40c642.jpg);"></v-btn></v-carousel-item>
+        <v-carousel-item ><v-btn to="/productos" class="imagen" style="height: 400px; background-image: url(https://i.pinimg.com/564x/39/a7/ae/39a7aec6fdf9c48f3e91c124cd85e641.jpg);"></v-btn></v-carousel-item>
       </v-carousel>
     </v-card>
   </v-card>
   </template>
-  
   <style scoped>
 
   .imagen{
-    background-image: url(https://i.pinimg.com/564x/fd/b1/7d/fdb17d67075f41ba4998546746eed45f.jpg)
+    width: 100%;
+    height:500px;
+    background-image: url(https://i.pinimg.com/564x/fd/b1/7d/fdb17d67075f41ba4998546746eed45f.jpg);
+    background-size: cover;
   }
   .carrousel {
     margin-left: 100px;
