@@ -51,10 +51,10 @@
   export default {
     data: () => ({
       icons: [
-        {icono: 'mdi-twitter', enlace:"https://twitter.com/?lang=es"},
-        {icono: 'mdi-instagram', enlace:"https://twitter.com/?lang=es"},
-        {icono: 'mdi-facebook', enlace:"https://twitter.com/?lang=es"},
-        {icono: 'mdi-twitch', enlace:"https://twitter.com/?lang=es"},
+        {icono: 'mdi-twitter'},
+        {icono: 'mdi-instagram'},
+        {icono: 'mdi-facebook'},
+        {icono: 'mdi-twitch'},
       ],
       items: [
         'default',

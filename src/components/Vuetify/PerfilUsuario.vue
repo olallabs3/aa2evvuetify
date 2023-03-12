@@ -65,6 +65,23 @@
 <script>
 export default {
   data() {
+    const data = { };
+    fetch("https://rickandmortyapi.com/api/character", {
+      method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  // procesar respuesta en caso de éxito
+})
+.catch(error => {
+  console.error('There was a problem with the fetch operation:', error);
+});
     return {
       users: [
         {

@@ -1,57 +1,57 @@
 <template>
     <v-container class="bg-surface-variant">
         <v-row no-gutters>
-            <v-col
-                v-for="(juego) in catalogo"
-                :key="juego.titulo"
+            <v-col v-for="(item, index) in data.results" :key="index" cols="12" sm="3">
+                <v-sheet class="pa-2 ma-2">
+                    <v-card class="mx-auto" max-width="200" min-height="525">
+                        <v-btn block color="red">
 
-                cols="12"
-                sm="3"
-            >
-            <v-sheet class="pa-2 ma-2">
-                <v-card
-                class="mx-auto"
-                max-width="200"
-                min-height="525"
-                >
-                    <!-- <v-img :src="require(`../assets/${libro.imagen}`)"
-                        cover
-                    /> -->
+                            EN STOCK
 
-                    <v-btn
-                    block
-                    color="red">
-                     <!-- Aqui va lo de agotado de la API -->
-                        EN STOCK
-                       
-                        <v-icon>mdi-cart</v-icon>
-                    </v-btn>
-                    <div>
-                        <v-card-title>{{ juego.titulo }}</v-card-title>
-                        <v-card-subtitle>{{ juego.descripcion }}</v-card-subtitle>
+                            <v-icon>mdi-cart</v-icon>
+                        </v-btn>
+                        <div>
+
+                            <v-card-title style="font-size: 17px;">Nombre: {{ item.name }}</v-card-title>
+                            <v-card-title style="font-size: 15px;">Consola: {{ item.status }}</v-card-title>
+                            <v-card-title style="font-size: 12px;">Unidades: {{ item.id }}</v-card-title>
+                            <!-- <v-card-subtitle>{{ juego.descripcion }}</v-card-subtitle>
                         <v-card-text>{{ juego.precio }}€</v-card-text>
-                        <v-card-text>{{ juego.plataforma }}</v-card-text>
-                    </div>
-                    
-                </v-card>
-            </v-sheet>
+                        <v-card-text>{{ juego.plataforma }}</v-card-text> -->
+                            <v-btn class="btn">Comprar</v-btn>
+                        </div>
+
+                    </v-card>
+                </v-sheet>
             </v-col>
 
         </v-row>
     </v-container>
 </template>
 
+
+<style>
+.btn {
+    margin-left: 25%;
+}
+</style>
+
 <script>
 export default {
-    data(){
-        return{
-            catalogo:[
-                {imagen: 'Marin.jpg', titulo: 'Juego 1', descripcion: 'Descripcion del juego 1', plataforma: "ordenador" , precio: '8,08'},
-                {imagen: 'mieruko03.jpg', titulo: 'Juego 2', descripcion: 'Descripcion del juego 2', plataforma: "ps4", precio: '8,08'},
-                {imagen: 'dan-da-dan.jpg', titulo: 'Juego 3', descripcion: 'Descripcion del juego 3',  plataforma: "xbox", precio: '7,60'},
-                {imagen: 'chainsaw-man-01.jpg', titulo: 'Juego 4', descripcion: 'Descripcion del juego 4',  plataforma: "nintendo switch", precio: '8,55'},
-            ]
-        }
-    }
-}
+    name: "Card_Component",
+    data() {
+        return {
+            data: { results: [] }
+        };
+    },
+    mounted() {
+        fetch("https://rickandmortyapi.com/api/character")
+            .then((response) => response.json())
+            .then((data) => {
+                this.data = data;
+                console.log(this.data); // para verificar que se ha obtenido los datos correctamente
+            })
+            .catch((error) => console.error(error));
+    },
+};
 </script>
