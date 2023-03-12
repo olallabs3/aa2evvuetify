@@ -24,17 +24,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in users" :key="item.nombre">
-            <td class="text-center">{{ item.nombre }}</td>
-            <td class="text-center">{{ item.fecha }}</td>
-            <v-btn class="btneliminar">Eliminar</v-btn>
+          <tr  v-for="(item) in data.results" :key="item.id">
+            <td class="text-center">{{ item.name }}</td>
+            <td class="text-center">{{ item.air_date }}</td>
+            <v-btn class="btneliminar"  @click="borrarElemento(item.id)">Eliminar</v-btn>
           </tr>
 
         </tbody>
       </template>
     </v-simple-table>
     <v-spacer></v-spacer>
-    <v-simple-table class="tabla">
+    <!-- <v-simple-table class="tabla">
       <template v-slot:default>
         <thead>
           <tr>
@@ -50,14 +50,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in videojuegos" :key="item.nombre">
+          <tr v-for="item in videojuegos" :key="item.id">
             <td>{{ item.nombre }}</td>
             <td>{{ item.unidades }}</td>
-            <v-btn class="btneliminar">Eliminar</v-btn>
+            <v-btn class="btneliminar" @click="borrarElemento(elemento.id)"    >Eliminar</v-btn>
           </tr>
         </tbody>
       </template>
-    </v-simple-table>
+    </v-simple-table> -->
 
   </v-container>
 </template>
@@ -65,23 +65,53 @@
 <script>
 export default {
   data() {
-    const data = {};
-    fetch("https://rickandmortyapi.com/api/character", {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+        return {
+            data: { results: [] }
+        };
+    },
+
+    borrarElemento(id) {
+    fetch(`https://rickandmortyapi.com/api/episode/${id}`, {
+      method: 'DELETE'
     })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al eliminar elemento')
+      }
+      
+      this.actualizarListaElementos()
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  },
+  actualizarListaElementos() {
+    fetch('https://rickandmortyapi.com/api/episode')
       .then(response => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Error al obtener lista de elementos')
         }
-        // procesar respuesta en caso de éxito
+       
+        return response.json()
+      })
+      .then(data => {
+      
+        this.elementos = data
       })
       .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
+        console.error(error)
+      })
+  },
+
+    mounted() {
+        fetch("https://rickandmortyapi.com/api/episode")
+            .then((response) => response.json())
+            .then((data) => {
+                this.data = data;
+                console.log(this.data); 
+            })
+            .catch((error) => console.error(error));
+    
     return {
       users: [
         {
