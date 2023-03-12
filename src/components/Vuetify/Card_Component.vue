@@ -14,10 +14,8 @@
 
                             <v-card-title style="font-size: 17px;">Nombre: {{ item.name }}</v-card-title>
                             <v-card-title style="font-size: 15px;">Consola: {{ item.status }}</v-card-title>
-                            <v-card-title style="font-size: 12px;">Unidades: {{ item.id }}</v-card-title>
-                            <!-- <v-card-subtitle>{{ juego.descripcion }}</v-card-subtitle>
-                        <v-card-text>{{ juego.precio }}€</v-card-text>
-                        <v-card-text>{{ juego.plataforma }}</v-card-text> -->
+                            <v-card-title style="font-size: 12px;">Unidades: {{ item.id }}</v-card-title> 
+                           
                             <v-btn class="btn">Comprar</v-btn>
                         </div>
 
@@ -49,7 +47,7 @@ export default {
             .then((response) => response.json())
             .then((data) => {
                 this.data = data;
-                console.log(this.data); // para verificar que se ha obtenido los datos correctamente
+                console.log(this.data); 
             })
             .catch((error) => console.error(error));
     },

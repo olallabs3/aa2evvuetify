@@ -1,8 +1,8 @@
 <template>
   <v-container class="grey lighten-5 tablaG">
     <div>
-    <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250"
-      src="https://picsum.photos/id/11/500/300"></v-img>
+      <v-img lazy-src="https://picsum.photos/id/11/10/6" max-height="150" max-width="250"
+        src="https://picsum.photos/id/11/500/300"></v-img>
       <p class="nombre">Nombre de la cuenta</p>
       <!-- No se si queremos editar cuenta usuario -->
       <v-btn class="nombre">Editar cuenta</v-btn>
@@ -29,7 +29,7 @@
             <td class="text-center">{{ item.fecha }}</td>
             <v-btn class="btneliminar">Eliminar</v-btn>
           </tr>
-          
+
         </tbody>
       </template>
     </v-simple-table>
@@ -65,23 +65,23 @@
 <script>
 export default {
   data() {
-    const data = { };
+    const data = {};
     fetch("https://rickandmortyapi.com/api/character", {
       method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(data)
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  // procesar respuesta en caso de éxito
-})
-.catch(error => {
-  console.error('There was a problem with the fetch operation:', error);
-});
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // procesar respuesta en caso de éxito
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
     return {
       users: [
         {
@@ -137,7 +137,7 @@ export default {
   width: 350px;
 }
 
-.btneliminar{
+.btneliminar {
   width: 40px;
   height: 40px;
   font-size: 12px;
@@ -146,7 +146,8 @@ export default {
 .tablaG {
   display: flex;
 }
-.nombre{
+
+.nombre {
   margin-left: 15%;
 }
 </style>

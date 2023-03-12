@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchItems({ commit }) {
-      const response = await fetch('https://rickandmortyapi.com/api/character')
+      const response = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc')
       const items = await response.json()
       commit('setItems', items)
     }
