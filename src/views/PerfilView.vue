@@ -27,7 +27,7 @@ export default {
         }
     },
 
-    methods: {
+    /* methods: {
         cargarDatos: function(){
             try {
                 const setting = {
@@ -42,7 +42,7 @@ export default {
                 
             }
         }
-    }
+    } */
 }
 </script>
 <style></style>

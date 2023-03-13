@@ -24,9 +24,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr  v-for="(item) in data.results" :key="item.id">
-            <td class="text-center">{{ item.name }}</td>
-            <td class="text-center">{{ item.air_date }}</td>
+          <tr  v-for="(item) in usuarios" :key="item.id">
+            <td class="text-center">{{ item.nombre }}</td>
+            <td class="text-center">{{ item.fecha }}</td>
+            <td class="text-center">{{ item.id }}</td>
             <v-btn class="btneliminar"  @click="borrarElemento(item.id)">Eliminar</v-btn>
           </tr>
 
@@ -63,103 +64,19 @@
 </template>
   
 <script>
+import {mapState, mapActions} from "vuex";
 export default {
-  data() {
-        return {
-            data: { results: [] }
-        };
+    nmethods: {
+    ...mapActions(["fetchUsuarios"])
+  },
+   computed:{
+    user(){
+      return this.usuarios
     },
+    ...mapState(["usuarios"])
+  }
 
-    borrarElemento(id) {
-    fetch(`https://rickandmortyapi.com/api/episode/${id}`, {
-      method: 'DELETE'
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error al eliminar elemento')
-      }
-      
-      this.actualizarListaElementos()
-    })
-    .catch(error => {
-      console.error(error)
-    })
-  },
-  actualizarListaElementos() {
-    fetch('https://rickandmortyapi.com/api/episode')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al obtener lista de elementos')
-        }
-       
-        return response.json()
-      })
-      .then(data => {
-      
-        this.elementos = data
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  },
-
-    mounted() {
-        fetch("https://rickandmortyapi.com/api/episode")
-            .then((response) => response.json())
-            .then((data) => {
-                this.data = data;
-                console.log(this.data); 
-            })
-            .catch((error) => console.error(error));
-    
-    return {
-      users: [
-        {
-          nombre: 'Usuario1',
-          fecha: '12/03/1986',
-        },
-        {
-          nombre: 'Usuario1',
-          fecha: '12/03/1986',
-        },
-        {
-          nombre: 'Usuario1',
-          fecha: '12/03/1986',
-        },
-        {
-          nombre: 'Usuario1',
-          fecha: '12/03/1986',
-        },
-        {
-          nombre: 'Usuario1',
-          fecha: '12/03/1986',
-        },
-      ],
-      videojuegos: [
-        {
-          nombre: 'Videojuego1',
-          unidades: 2,
-        },
-        {
-          nombre: 'Videojuego2',
-          unidades: 3,
-        },
-        {
-          nombre: 'Videojuego3',
-          unidades: 1,
-        },
-        {
-          nombre: 'Videojuego4',
-          unidades: 2,
-        },
-        {
-          nombre: 'Videojuego5',
-          unidades: 0,
-        },
-      ],
-    }
-  },
-}
+};
 </script>
   
 <style>

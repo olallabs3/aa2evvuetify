@@ -17,7 +17,7 @@ export default {
         Card_Component
     },
 
-    created() {
+/*     created() {
         this.cargarDatos();
     },
 
@@ -25,24 +25,9 @@ export default {
         return {
             Items: []
         }
-    },
+    }, */
 
-    methods: {
-        cargarDatos: function () {
-            try {
-                const setting = {
-                    method: 'GET'
-                }
-                const url = 'https://picsum.photos/v2/list=page=2&limit=10'
-                const data = fetch(url, setting)
-                const json = data.json()
-                this.Items = json
-            } catch (error) {
-                console.log(error)
-
-            }
-        }
-    }
+    
 }
 </script>
 <style></style>
