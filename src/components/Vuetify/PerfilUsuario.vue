@@ -28,52 +28,32 @@
             <td class="text-center">{{ item.nombre }}</td>
             <td class="text-center">{{ item.fecha }}</td>
             <td class="text-center">{{ item.id }}</td>
-            <v-btn class="btneliminar"  @click="borrarElemento(item.id)">Eliminar</v-btn>
+            <v-btn class="btneliminar"  @click="fetchUsuarioDELETE(item.id)">Eliminar</v-btn>
           </tr>
 
         </tbody>
       </template>
     </v-simple-table>
     <v-spacer></v-spacer>
-    <!-- <v-simple-table class="tabla">
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-center">
-              Nombre Videojuego
-            </th>
-            <th class="text-left">
-              Unidades restantes
-            </th>
-            <th class="text-left">
-              Acciones
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in videojuegos" :key="item.id">
-            <td>{{ item.nombre }}</td>
-            <td>{{ item.unidades }}</td>
-            <v-btn class="btneliminar" @click="borrarElemento(elemento.id)"    >Eliminar</v-btn>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table> -->
 
   </v-container>
 </template>
   
 <script>
+import store from '@/store/store';
+//import store from '@/store/store';
 import {mapState, mapActions} from "vuex";
 export default {
-    nmethods: {
-    ...mapActions(["fetchUsuarios"])
+    methods: {
+    ...mapActions([store.dispatch("fetchUsuarios")]),
+    ...mapActions(["fetchUsuarioDELETE"])
+    
   },
    computed:{
-    user(){
-      return this.usuarios
+     usuarios(){
+       return this.usuarios
     },
-    ...mapState(["usuarios"])
+      ...mapState(["usuarios"])
   }
 
 };

@@ -15,6 +15,9 @@ export default new Vuex.Store({
         initUsuarios(state, usuarios) {
             state.usuarios = usuarios;
         },
+        eliminarUsuario(state, id){
+          state.usuarios = state.usuarios.filter((usuario) => usuario.id != id)
+        }
     },
     actions: {
         fetchGames({ commit }) {
@@ -29,7 +32,9 @@ export default new Vuex.Store({
 
         },
         fetchUsuarios({ commit }) {
-               fetch('https://localhost:7210/api/Usuarios')
+               fetch('https://localhost:7210/api/Usuarios',{
+                method:'GET'
+               })
                 .then(response => response.json())
                 .then(response => {
                   commit("initUsuarios", response)
@@ -39,6 +44,17 @@ export default new Vuex.Store({
                  para la acción del POST hacer un dispatch de un objeto con todos los datos del form (p.ej.) */
 
         },
+        fetchUsuarioDELETE({commit}, id){
+          return fetch(`https://localhost:7210/api/Usuarios/${id}`,{
+            method: 'DELETE'
+          })
+          .then(() => {
+            commit(`eliminarUsuario`, id)
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+        }
     },
      getters: {
        /*  getGames(state) {

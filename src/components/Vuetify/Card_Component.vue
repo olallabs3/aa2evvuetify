@@ -35,10 +35,11 @@
 </style>
 
 <script>
+import store from '@/store/store';
 import {mapState, mapActions} from "vuex";
 export default {
-    nmethods: {
-    ...mapActions(["fetchGames"])
+    methods: {
+    ...mapActions([store.dispatch("fetchGames")])
   },
    computed:{
     user(){
